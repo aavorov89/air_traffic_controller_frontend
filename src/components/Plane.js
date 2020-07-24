@@ -3,9 +3,11 @@ import React from "react";
 const Plane = (props) => {
   let button;
 
-  switch (props.status) {
+  const { status, startPlane, id, name, from, to } = props;
+
+  switch (status) {
     case 'normal':
-      button = <button onClick={() => props.startPlane(props.id)} type="button" className="btn btn-primary">
+      button = <button onClick={() => startPlane(id)} type="button" className="btn btn-primary">
         Start
       </button>;
     break;
@@ -24,10 +26,10 @@ const Plane = (props) => {
 
   return (
     <tr>
-      <td>{ 1000 + props.id }</td>
-      <td>{ props.name }</td>
-      <td>{ props.from }</td>
-      <td>{ props.to }</td>
+      <td>{ 1000 + id }</td>
+      <td>{ name }</td>
+      <td>{ from }</td>
+      <td>{ to }</td>
       <td>{ button }</td>
     </tr>
   );
